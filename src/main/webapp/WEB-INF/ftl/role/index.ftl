@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 	<head>
-		<meta charset="utf-8" />
 		<title>角色列表 - 权限管理</title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-		<link   rel="icon" href="http://img.wenyifan.net/images/favicon.ico" type="image/x-icon" />
-		<link   rel="shortcut icon" href="http://img.wenyifan.net/images/favicon.ico" />
-		<link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
-		<link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
-		<script  src="http://open.sojson.com/common/jquery/jquery1.8.3.min.js"></script>
-		<script  src="${basePath}/js/common/layer/layer.js"></script>
-		<script  src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script  src="${basePath}/js/shiro.demo.js"></script>
+		<#include "../common/config/reference.ftl"/>
+		<@reference/>
 		<script >
 			so.init(function(){
 				//初始化全选。
@@ -122,7 +114,10 @@
 									<td>
 										<#if it.type != '888888'>
 											<@shiro.hasPermission name="/role/deleteRoleById.shtml">
-												<i class="glyphicon glyphicon-remove"></i><a href="javascript:deleteById([${it.id}]);">删除</a>
+									         	<a class='btn btn-default label-info' id='detailUpdate' title='修改' href='javascript:void(0);'>
+									         	<i class='fa fa-pencil'></i></a>&nbsp;
+			                    				<a class="btn btn-default label-danger" id="deleteRow" title="删除" href="javascript:deleteById([${it.id}]);">
+			                    				<i class="fa fa-trash-o"></i></a>
 								         	</@shiro.hasPermission>
 								         	<#else>
 								         	-
