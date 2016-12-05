@@ -4,12 +4,13 @@
         <meta charset="utf-8">
         <title>Shiro Demo | 登录</title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-        <link   rel="icon" href="http://img.wenyifan.net/images/favicon.ico" type="image/x-icon" />
-		<link   rel="shortcut icon" href="http://img.wenyifan.net/images/favicon.ico" />
+        <!--网页页签title旁边的icon-->
+		<link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
+		<link   rel="shortcut icon" href="${basePath}/favicon.ico" type="image/x-icon" />
         <!-- CSS -->
-        <link rel="stylesheet" href="http://open.sojson.com/itboy/js/itboy/app/reset.css">
-        <link rel="stylesheet" href="http://open.sojson.com/itboy/js/itboy/app/supersized.css">
-        <link rel="stylesheet" href="http://open.sojson.com/itboy/js/itboy/app/style.css"/>
+        <link rel="stylesheet" href="${basePath}/css/login/reset.css">
+        <link rel="stylesheet" href="${basePath}/css/login/supersized.css">
+        <link rel="stylesheet" href="${basePath}/css/login/style.css">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://static.supportfolios.com/js/www/html5shiv.js"></script>
@@ -157,15 +158,7 @@
                 </div>
                 <button type="button" id="login">登录</button>
                 <button type="button" id="register" class="register">Register</button>
-                <div class="connect" >
-	                <p>有问题请这样解决:</p>
-	                <p>
-	                    <a class="" style="width: auto; color: rgb(255, 255, 255);" target="_blank" href="http://www.sojson.com/shiro">点我看本项目介绍</a>
-	                    <a class="" style="width: auto; color: rgb(255, 255, 255);" target="_blank" href="http://jq.qq.com/?_wv=1027&k=YpqCNd">加QQ群：259217951交流</a>
-	                </p>
-	            </div>
                 
-                <div class="error"><span>+</span></div>
             </form>
         </div>
         <!-- Javascript -->
