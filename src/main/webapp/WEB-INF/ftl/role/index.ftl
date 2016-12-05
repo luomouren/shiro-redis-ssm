@@ -4,7 +4,7 @@
 		<title>角色列表 - 权限管理</title>
 		<#include "../common/config/reference.ftl"/>
 		<@reference/>
-		<script >
+		<script type="text/javascript">
 			so.init(function(){
 				//初始化全选。
 				so.checkBoxInit('#checkAll','[check=box]');

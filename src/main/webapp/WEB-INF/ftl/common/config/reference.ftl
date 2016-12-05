@@ -8,6 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <title>shiro.demo</title>
+    
 	<!--网页页签title旁边的icon-->
 	<link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
 	<link   rel="shortcut icon" href="${basePath}/favicon.ico" type="image/x-icon" />

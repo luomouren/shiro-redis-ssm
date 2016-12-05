@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 	<head>
-		<meta charset="utf-8" />
 		<title>我的权限  —个人中心</title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-		<link   rel="icon" href="http://img.wenyifan.net/images/favicon.ico" type="image/x-icon" />
-		<link   rel="shortcut icon" href="http://img.wenyifan.net/images/favicon.ico" />
-		<link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
-		<link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
+		<#include "../common/config/reference.ftl"/>
+		<@reference/>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		
 		<@_top.top 1/>
 		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
 			<#--row-->
