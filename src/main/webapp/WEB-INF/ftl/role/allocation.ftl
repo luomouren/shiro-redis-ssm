@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 	<head>
-		<meta charset="utf-8" />
 		<title>用户角色分配 - 权限管理</title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-		<link   rel="icon" href="http://img.wenyifan.net/images/favicon.ico" type="image/x-icon" />
-		<link   rel="shortcut icon" href="http://img.wenyifan.net/images/favicon.ico" />
-		<link href="/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
-		<link href="/css/common/base.css?${_v}" rel="stylesheet"/>
-		<script  src="http://open.sojson.com/common/jquery/jquery1.8.3.min.js"></script>
-		<script  src="/js/common/layer/layer.js"></script>
-		<script  src="/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script  src="/js/shiro.demo.js"></script>
-		<script >
+		<#include "../common/config/reference.ftl"/>
+		<@reference/>
+		<script type="text/javascript">
 		so.init(function(){
 				//初始化全选。
 				so.checkBoxInit('#checkAll','[check=box]');
@@ -36,7 +28,7 @@
 			function deleteById(ids){
 				var index = layer.confirm("确定清除这"+ ids.length +"个用户的角色？",function(){
 					var load = layer.load();
-					$.post('/role/clearRoleByUserIds.shtml',{userIds:ids.join(',')},function(result){
+					$.post('${basePath}/role/clearRoleByUserIds.shtml',{userIds:ids.join(',')},function(result){
 						layer.close(load);
 						if(result && result.status != 200){
 							return layer.msg(result.message,so.default),!0;
@@ -63,7 +55,7 @@
 				var index = layer.confirm("确定操作？",function(){
 					<#--loding-->
 					var load = layer.load();
-					$.post('/role/addRole2User.shtml',{ids:ids.join(','),userId:$('#selectUserId').val()},function(result){
+					$.post('${basePath}/role/addRole2User.shtml',{ids:ids.join(','),userId:$('#selectUserId').val()},function(result){
 						layer.close(load);
 						if(result && result.status != 200){
 							return layer.msg(result.message,so.default),!1;
@@ -80,7 +72,7 @@
 			*/
 			function selectRoleById(id){
 				var load = layer.load();
-				$.post("/role/selectRoleByUserId.shtml",{id:id},function(result){
+				$.post("${basePath}/role/selectRoleByUserId.shtml",{id:id},function(result){
 					layer.close(load);
 					if(result && result.length){
 						var html =[];

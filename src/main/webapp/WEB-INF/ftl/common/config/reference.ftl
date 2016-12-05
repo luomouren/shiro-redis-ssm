@@ -1,4 +1,4 @@
-<#-- 通用css.js -->
+<#-- 通用css.js引用 -->
 <#macro reference>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -16,7 +16,7 @@
 	
 	<link rel="stylesheet" href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}"/>
 	<link rel="stylesheet" href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
-	<!--图标-->
+	<!-- font-awesome 图标-->
 	<link rel="stylesheet" href="${basePath}/js/common/font-awesome/css/font-awesome.min.css">
 	
 	<script  type="application/javascript" src="${basePath}/js/common/layer/layer.js"></script>
