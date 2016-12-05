@@ -422,6 +422,11 @@
 		</dependency>
 		<!-- /Spring 升级4+ 依赖的JSON包 -->
 
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>3.2.4</version>
+		</dependency>
 
 	</dependencies>
 </project>
