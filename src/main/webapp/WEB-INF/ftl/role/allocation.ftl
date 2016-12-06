@@ -116,9 +116,11 @@
 					        			name="findContent" id="findContent" placeholder="输入用户昵称 / 用户帐号">
 					      </div>
 					     <span class=""> <#--pull-right -->
-				         	<button type="submit" class="btn btn-primary">查询</button>
+				         	<a class="btn btn-primary" title="查询" type="submit"  onclick="$('#formId').submit();">
+			                <i class="fa fa-search"></i></a>
 				         	<@shiro.hasPermission name="/role/clearRoleByUserIds.shtml">
-				         		<button type="button" id="deleteAll" class="btn  btn-danger">清空用户角色</button>
+				         		<a class="btn btn-default label-danger" id="deleteAll" title="清空用户角色" href="javascript:void(0);">
+			                    <i class="fa fa-trash-o"></i></a>
 			         		</@shiro.hasPermission>
 				         </span>    
 				        </div>
@@ -143,7 +145,8 @@
 									<td roleIds="${it.roleIds?default('')}">${it.roleNames?default('-')}</td>
 									<td>
 										<@shiro.hasPermission name="/role/addRole2User.shtml">
-											<i class="glyphicon glyphicon-share-alt"></i><a href="javascript:selectRoleById(${it.id});">选择角色</a>
+											<a class="btn btn-success" title="选择角色"  href="javascript:selectRoleById(${it.id});">
+			                    			<i class="fa fa-mail-forward"></i></a>
 										</@shiro.hasPermission>
 									</td>
 								</tr>
