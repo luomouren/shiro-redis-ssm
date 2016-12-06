@@ -23,7 +23,8 @@
 	<script  type="application/javascript" src="${basePath}/js/common/layer/layer.js"></script>
 	<script  type="application/javascript" src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script  type="application/javascript" src="${basePath}/js/shiro.demo.js"></script>
-	
+	<!-- 我的权限中用到的组织树js-->
+	<script  src="${basePath}/js/common/bootstrap/bootstrap-treeview.js"></script>
 	<style type="text/css">
 		.fa-pencil,.fa-trash-o{
 			color:white;

@@ -88,12 +88,15 @@
 					        			name="findContent" id="findContent" placeholder="输入权限名称">
 					      </div>
 					     <span class=""> <#--pull-right -->
-				         	<button type="submit" class="btn btn-primary">查询</button>
+				         	<a class="btn btn-primary" title="查询" type="submit"  onclick="$('#formId').submit();">
+			                <i class="fa fa-search"></i></a>
 				         	<@shiro.hasPermission name="/permission/addPermission.shtml">
-				         		<a class="btn btn-success" onclick="$('#addPermission').modal();">增加权限</a>
+				         		<a class="btn btn-success" title="增加权限" onclick="$('#addPermission').modal();">
+			                    <i class="fa fa-plus-square"></i></a>
 				         	</@shiro.hasPermission>
 				         	<@shiro.hasPermission name="/permission/deletePermissionById.shtml">
-				         		<button type="button" id="deleteAll" class="btn  btn-danger">Delete</button>
+				         		<a class="btn btn-default label-danger" id="deleteAll" title="删除" href="javascript:void(0);">
+			                    <i class="fa fa-trash-o"></i></a>
 				         	</@shiro.hasPermission>
 				         </span>    
 				        </div>
@@ -113,7 +116,8 @@
 									<td>${it.url?default('-')}</td>
 									<td>
 										<@shiro.hasPermission name="/permission/deletePermissionById.shtml">
-											<i class="glyphicon glyphicon-remove"></i><a href="javascript:deleteById([${it.id}]);">删除</a>
+											<a class="btn btn-default label-danger" id="deleteRow" title="删除" href="javascript:deleteById([${it.id}]);">
+			                    			<i class="fa fa-trash-o"></i></a>
 										</@shiro.hasPermission>
 									</td>
 								</tr>
@@ -154,8 +158,8 @@
 			        </form>
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" onclick="addPermission();" class="btn btn-primary">Save</button>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			        <button type="button" onclick="addPermission();" class="btn btn-primary">保存</button>
 			      </div>
 			    </div>
 			  </div>
