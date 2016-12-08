@@ -84,9 +84,11 @@
 					        			name="findContent" id="findContent" placeholder="输入昵称 / 帐号">
 					      </div>
 					     <span class=""> <#--pull-right -->
-				         	<button type="submit" class="btn btn-primary">查询</button>
+				         	<a class="btn btn-primary" title="查询" type="submit"  onclick="$('#formId').submit();">
+			                <i class="fa fa-search"></i></a>
 				         	<@shiro.hasPermission name="/member/deleteUserById.shtml">
-				         		<button type="button" id="deleteAll" class="btn  btn-danger">Delete</button>
+				         		<a class="btn btn-default label-danger" id="deleteAll" title="删除" href="javascript:void(0);">
+			                    <i class="fa fa-trash-o"></i></a>
 				         	</@shiro.hasPermission>
 				         </span>    
 				        </div>
@@ -112,13 +114,14 @@
 									<td>${it.lastLoginTime?string('yyyy-MM-dd HH:mm')}</td>
 									<td>
 										<@shiro.hasPermission name="/member/forbidUserById.shtml">
-										${(it.status==1)?string('<i class="glyphicon glyphicon-eye-close"></i>&nbsp;','<i class="glyphicon glyphicon-eye-open"></i>&nbsp;')}
-										<a href="javascript:forbidUserById(${(it.status==1)?string(0,1)},${it.id})">
-											${(it.status==1)?string('禁止登录','激活登录')}
-										</a>
+										
+										<a class="btn btn-default label-danger" href="javascript:forbidUserById(${(it.status==1)?string(0,1)},${it.id})"
+										 ${(it.status==1)?string('title="禁止登录"><i class="fa fa-eye-slash"','title="激活登录"><i class="fa fa-eye"')}
+										 ></i></a>
 										</@shiro.hasPermission>
 										<@shiro.hasPermission name="/member/deleteUserById.shtml">
-										<a href="javascript:_delete([${it.id}]);">删除</a>
+											<a class="btn btn-default label-danger"  title="删除" href="javascript:_delete([${it.id}]);">
+			                    			<i class="fa fa-trash-o"></i></a>
 										</@shiro.hasPermission>
 									</td>
 								</tr>

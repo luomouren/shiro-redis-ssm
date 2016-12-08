@@ -25,7 +25,8 @@
 				$.post("${basePath}/member/changeSessionStatus.shtml",{status:status,sessionIds:sessionIds},function(result){
 					layer.close(load);
 					if(result && result.status == 200){
-						return self.text(result.sessionStatusText),
+						var classStr = result.sessionStatusText=='踢出'?'fa fa-remove':'fa fa-plus';
+						return self.children().attr("class",classStr),
 									self.attr('status',result.sessionStatus),
 										self.parent().prev().text(result.sessionStatusTextTd);
 										layer.msg('操作成功'),!1;
@@ -54,7 +55,8 @@
 					        			name="findContent" id="findContent" placeholder="输入昵称 / 帐号">
 					      </div>
 					     <span class=""> <#--pull-right -->
-				         	<button type="submit" class="btn btn-primary">查询</button>
+				         	<a class="btn btn-primary" title="查询" type="submit"  onclick="$('#formId').submit();">
+			                <i class="fa fa-search"></i></a>
 				         </span>    
 				        </div>
 					<hr>
@@ -78,9 +80,15 @@
 									<td>${it.lastAccess?string('HH:mm:ss yy-MM-dd')}</td>
 									<td>${(it.sessionStatus)?string('有效','已踢出')}</td>
 									<td>
-										<a href="${basePath}/member/onlineDetails/${it.sessionId}.shtml">详情</a>
+										
+										<a class="btn btn-primary"  title="详情" href="${basePath}/member/onlineDetails/${it.sessionId}.shtml">
+			                    		<i class="fa fa-external-link-square"></i></a>
 										<@shiro.hasPermission name="/member/changeSessionStatus.shtml">
-											<a v="onlineDetails"href="javascript:void(0);" sessionId="${it.sessionId}" status="${(it.sessionStatus)?string(1,0)}">${(it.sessionStatus)?string('踢出','激活')}</a>
+											
+											<a class="btn btn-default label-danger"  href="javascript:void(0);"  
+											v="onlineDetails" sessionId="${it.sessionId}" status="${(it.sessionStatus)?string(1,0)}" 
+											title="${(it.sessionStatus)?string('踢出','激活')}" href="javascript:void(0);">
+			                    			<i class="fa ${(it.sessionStatus)?string('fa-remove','fa-plus')}"></i></a>
 										</@shiro.hasPermission>
 									</td>
 								</tr>
