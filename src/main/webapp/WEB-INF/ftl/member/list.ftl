@@ -2,8 +2,7 @@
 <html lang="zh-cn">
 	<head>
 		<title>用户列表 —个人中心</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
+		<@_quote.quote 1/>
 		<script  type="text/javascript">
 			so.init(function(){
 				//初始化全选。
@@ -69,15 +68,19 @@
 		</script>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		
-		<@_top.top 2/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<@_left.member 1/>
-				<div class="col-md-10">
-					<h2>用户列表</h2>
-					<hr>
-					<form method="post" action="" id="formId" class="form-inline">
+		<@_topNav.top 2/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 2.1/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">用户列表</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">用户中心</a></li>
+                <li class="am-active">用户列表</li>
+            </ol>
+            <div class="tpl-portlet-components">
+            
+	            <form method="post" action="" id="formId" class="form-inline">
 						<div clss="well">
 					      <div class="form-group">
 					        <input type="text" class="form-control" style="width: 300px;" value="${findContent?default('')}" 
@@ -137,10 +140,10 @@
 							${page.pageHtml}
 						</div>
 					</#if>
-					</form>
-				</div>
-			</div><#--/row-->
+				</form>
+            </div>
+        </div>    
 		</div>
-			
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
 	</body>
 </html>

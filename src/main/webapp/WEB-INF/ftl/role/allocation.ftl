@@ -2,8 +2,7 @@
 <html lang="zh-cn">
 	<head>
 		<title>用户角色分配 - 权限管理</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
+		<@_quote.quote 1/>
 		<script type="text/javascript">
 		so.init(function(){
 				//初始化全选。
@@ -99,17 +98,21 @@
 			</@shiro.hasPermission>
 		</script>
 	</head>
+	
+	
 	<body data-target="#one" data-spy="scroll">
-		<#--引入头部-->
-		<@_top.top 3/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<#--引入左侧菜单-->
-				<@_left.role 2/>
-				<div class="col-md-10">
-					<h2>用户角色分配</h2>
-					<hr>
-					<form method="post" action="" id="formId" class="form-inline">
+		<@_topNav.top 3/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 3.2/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">角色分配</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">权限管理</a></li>
+                <li class="am-active">角色分配</li>
+            </ol>
+            <div class="tpl-portlet-components">
+	            <form method="post" action="" id="formId" class="form-inline">
 						<div clss="well">
 					      <div class="form-group">
 					        <input type="text" class="form-control" style="width: 300px;" value="${findContent?default('')}" 
@@ -162,33 +165,34 @@
 							${page.pageHtml}
 						</div>
 					</#if>
-					</form>
+				</form>
+				
+				<#--弹框-->
+				<div class="modal fade bs-example-modal-sm"  id="selectRole" tabindex="-1" role="dialog" aria-labelledby="selectRoleLabel" style="margin-top:70px;">
+				  <div class="modal-dialog modal-sm" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="selectRoleLabel">添加角色</h4>
+				      </div>
+				      <div class="modal-body">
+				        <form id="boxRoleForm">
+				          loading...
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="button" onclick="selectRole();" class="btn btn-primary">保存</button>
+				      </div>
+				    </div>
+				  </div>
 				</div>
-			</div><#--/row-->
-			
-			<#--弹框-->
-			<div class="modal fade bs-example-modal-sm"  id="selectRole" tabindex="-1" role="dialog" aria-labelledby="selectRoleLabel">
-			  <div class="modal-dialog modal-sm" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="selectRoleLabel">添加角色</h4>
-			      </div>
-			      <div class="modal-body">
-			        <form id="boxRoleForm">
-			          loading...
-			        </form>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-			        <button type="button" onclick="selectRole();" class="btn btn-primary">保存</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			<#--/弹框-->
-			
+				<#--/弹框-->
+				
+            </div>
 		</div>
+		</div>
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
 			
 	</body>
 </html>

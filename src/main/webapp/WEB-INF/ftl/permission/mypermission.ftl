@@ -2,24 +2,26 @@
 <html lang="zh-cn">
 	<head>
 		<title>我的权限  —个人中心</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
+		<@_quote.quote 1/>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		<@_top.top 1/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<#--row-->
-			<div class="row">
-				<@_left.user 2/>
-				<div class="col-md-10">
-					<h2>我的权限</h2>
-					<hr>
-					<div id="getPermissionTree" >loding... ...</div>
-				</div>
-			</div>
-			<#--/row-->
+		<@_topNav.top 1/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 1.4/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">我的权限</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">个人中心</a></li>
+                <li class="am-active">我的权限</li>
+            </ol>
+            <div class="tpl-portlet-components">
+	            <div id="getPermissionTree" >loding... ...</div>
+            </div>
 		</div>
-		<script >
+		</div>
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
+		<script>
 			$(function(){
 				//加载 permission tree data
 				var load = layer.load();

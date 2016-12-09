@@ -2,40 +2,42 @@
 <html lang="zh-cn">
 	<head>
 		<title>密码修改—个人中心</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
+		<@_quote.quote 1/>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		
-		<@_top.top 1/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<@_left.user 1/>
-				<div class="col-md-10">
-					<h2>密码修改</h2>
-					<hr>
-					<form id="formId" enctype="multipart/form-data" action="${basePath}/user/updatePswd.shtml" method="post">
-						  <div class="form-group">
-						    <label for="pswd">原密码</label>
-						    <input type="password" class="form-control" autocomplete="off" id="pswd" maxlength="20" name="pswd"  placeholder="请输入原密码">
-						  </div>
-						  <div class="form-group">
-						    <label for="newPswd">新密码</label>
-						    <input type="password" class="form-control" autocomplete="off" id="newPswd" maxlength="20" name="newPswd" placeholder="请输入新密码">
-						  </div>
-						  <div class="form-group">
-						    <label for="reNewPswd">新密码（再输入一次）</label>
-						    <input type="password" class="form-control" autocomplete="off" id="reNewPswd" maxlength="20" name="reNewPswd"placeholder="请再次输入新密码">
-						  </div>
-						  <div class="form-group">
-							  <button type="submit" class="btn btn-success">确定修改</button>
-						  </div>
-						</form>
-					
-				</div>
-			</div><#--/row-->
+		<@_topNav.top 1/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 1.3/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">密码修改</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">个人中心</a></li>
+                <li class="am-active">密码修改</li>
+            </ol>
+            <div class="tpl-portlet-components">
+	            <form id="formId" enctype="multipart/form-data" action="${basePath}/user/updatePswd.shtml" method="post">
+				  <div class="form-group">
+				    <label for="pswd">原密码</label>
+				    <input type="password" class="form-control" autocomplete="off" id="pswd" maxlength="20" name="pswd"  placeholder="请输入原密码">
+				  </div>
+				  <div class="form-group">
+				    <label for="newPswd">新密码</label>
+				    <input type="password" class="form-control" autocomplete="off" id="newPswd" maxlength="20" name="newPswd" placeholder="请输入新密码">
+				  </div>
+				  <div class="form-group">
+				    <label for="reNewPswd">新密码（再输入一次）</label>
+				    <input type="password" class="form-control" autocomplete="off" id="reNewPswd" maxlength="20" name="reNewPswd"placeholder="请再次输入新密码">
+				  </div>
+				  <div class="form-group">
+					  <button type="submit" class="btn btn-success">确定修改</button>
+				  </div>
+				</form>
+            </div>
 		</div>
-		<script src="${cdn}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
+		</div>
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
+		
 		<script>
 			$(function(){
 				var load;

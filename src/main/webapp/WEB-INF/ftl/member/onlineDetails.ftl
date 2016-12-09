@@ -2,19 +2,21 @@
 <html lang="zh-cn">
 	<head>
 		<title>Session详情 — SSM + Shiro Demo</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
+		<@_quote.quote 1/>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		
-		<@_top.top 2/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<@_left.member 2/>
-				<div class="col-md-10">
-					<h2>Session详情</h2>
-					<hr>
-					<table class="table table-bordered">
+		<@_topNav.top 2/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 2.2/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">在线用户详情</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">用户中心</a></li>
+                <li class="am-active">在线用户</li>
+            </ol>
+            <div class="tpl-portlet-components">
+	            <table class="table table-bordered">
 						<tr>
 							<th>Session Id</th>
 							<td>${bo.sessionId?default('—')}</td>
@@ -56,9 +58,9 @@
 							<td>${bo.lastLoginTime?string('yyyy-MM-dd HH:mm')}</td>
 						</tr>
 					</table>
-				</div>
-			</div><#--/row-->
+            </div>
 		</div>
-			
+		</div>
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
 	</body>
 </html>

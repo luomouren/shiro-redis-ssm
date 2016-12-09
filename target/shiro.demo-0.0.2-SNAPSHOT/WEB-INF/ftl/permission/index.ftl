@@ -2,9 +2,7 @@
 <html lang="zh-cn">
 	<head>
 		<title>权限列表 - 权限管理</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
-		
+		<@_quote.quote 1/>
 		<script type="text/javascript">
 			so.init(function(){
 				//初始化全选。
@@ -72,16 +70,18 @@
 		</script>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		<#--引入头部-->
-		<@_top.top 3/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<#--引入左侧菜单-->
-				<@_left.role 3/>
-				<div class="col-md-10">
-					<h2>权限列表</h2>
-					<hr>
-					<form method="post" action="" id="formId" class="form-inline">
+		<@_topNav.top 1/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 3.3/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">权限列表</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">权限管理</a></li>
+                <li class="am-active">权限列表</li>
+            </ol>
+            <div class="tpl-portlet-components">
+	            <form method="post" action="" id="formId" class="form-inline">
 						<div clss="well">
 					      <div class="form-group">
 					        <input type="text" class="form-control" style="width: 300px;" value="${findContent?default('')}" 
@@ -133,40 +133,41 @@
 							${page.pageHtml}
 						</div>
 					</#if>
-					</form>
+				</form>
+				<@shiro.hasPermission name="/permission/addPermission.shtml">
+				<#--弹框-->
+				<div class="modal fade" id="addPermission" tabindex="-1" role="dialog" aria-labelledby="addPermissionLabel"  style="margin-top:70px;">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="addPermissionLabel">添加权限</h4>
+				      </div>
+				      <div class="modal-body">
+				        <form id="boxRoleForm">
+				          <div class="form-group">
+				            <label for="recipient-name" class="control-label">权限名称:</label>
+				            <input type="text" class="form-control" name="name" id="name" placeholder="请输入权限名称"/>
+				          </div>
+				          <div class="form-group">
+				            <label for="recipient-name" class="control-label">权限URL地址:</label>
+				            <input type="text" class="form-control" id="url" name="url"  placeholder="请输入权限URL地址">
+				          </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="button" onclick="addPermission();" class="btn btn-primary">保存</button>
+				      </div>
+				    </div>
+				  </div>
 				</div>
-			</div><#--/row-->
-			<@shiro.hasPermission name="/permission/addPermission.shtml">
-			<#--弹框-->
-			<div class="modal fade" id="addPermission" tabindex="-1" role="dialog" aria-labelledby="addPermissionLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="addPermissionLabel">添加权限</h4>
-			      </div>
-			      <div class="modal-body">
-			        <form id="boxRoleForm">
-			          <div class="form-group">
-			            <label for="recipient-name" class="control-label">权限名称:</label>
-			            <input type="text" class="form-control" name="name" id="name" placeholder="请输入权限名称"/>
-			          </div>
-			          <div class="form-group">
-			            <label for="recipient-name" class="control-label">权限URL地址:</label>
-			            <input type="text" class="form-control" id="url" name="url"  placeholder="请输入权限URL地址">
-			          </div>
-			        </form>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-			        <button type="button" onclick="addPermission();" class="btn btn-primary">保存</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			<#--/弹框-->
-			</@shiro.hasPermission>
+				<#--/弹框-->
+				</@shiro.hasPermission>
+            </div>
 		</div>
+		</div>
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
 			
 	</body>
 </html>

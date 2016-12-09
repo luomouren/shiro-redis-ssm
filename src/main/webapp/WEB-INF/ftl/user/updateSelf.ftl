@@ -2,43 +2,39 @@
 <html lang="zh-cn">
 	<head>
 		<title>资料修改 —个人中心</title>
-		<#include "../common/config/reference.ftl"/>
-		<@reference/>
+		<@_quote.quote 1/>
 	</head>
 	<body data-target="#one" data-spy="scroll">
-		
-		<@_top.top 1/>
-		<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
-			<div class="row">
-				<@_left.user 1/>
-				<div class="col-md-10">
-					<h2>资料修改</h2>
-					<hr>
-					<form id="formId" enctype="multipart/form-data" action="${basePath}/user/updateSelf.shtml" method="post">
-						  <input type="hidden" value="${token.id}" name="id"/>
-						  <div class="form-group">
-						    <label for="nickname">昵称</label>
-						    <input type="text" class="form-control" autocomplete="off" id="nickname" maxlength="8" name="nickname" value="${token.nickname?default('未设置')}" placeholder="请输入昵称">
-						  </div>
-						  <div class="form-group">
-						    <label for="email">Email（不准修改）</label>
-						    <input type="text" class="form-control " disabled autocomplete="off" id="email" maxlength="64" name="email" value="${token.email?default('未设置')}" placeholder="请输入帐号">
-						  </div>
-						  <div class="form-group">
-							  <button type="submit" class="btn btn-success">确定修改</button>
-						  </div>
-						</form>
-					
-				</div>
-				 <#--地图
-				<@_html.tool_map/>
-				-->
-			</div><#--/row-->
+		<@_topNav.top 1/>
+		<div class="tpl-page-container tpl-page-header-fixed">
+		<@_leftNav.left 1.2/>
+		<div class="tpl-content-wrapper">
+			<div class="tpl-content-page-title">资料修改</div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">个人中心</a></li>
+                <li class="am-active">资料修改</li>
+            </ol>
+            <div class="tpl-portlet-components">
+	            <form id="formId" enctype="multipart/form-data" action="${basePath}/user/updateSelf.shtml" method="post">
+					  <input type="hidden" value="${token.id}" name="id"/>
+					  <div class="form-group">
+					    <label for="nickname">昵称</label>
+					    <input type="text" class="form-control" autocomplete="off" id="nickname" maxlength="8" name="nickname" value="${token.nickname?default('未设置')}" placeholder="请输入昵称">
+					  </div>
+					  <div class="form-group">
+					    <label for="email">Email（不准修改）</label>
+					    <input type="text" class="form-control " disabled autocomplete="off" id="email" maxlength="64" name="email" value="${token.email?default('未设置')}" placeholder="请输入帐号">
+					  </div>
+					  <div class="form-group">
+						  <button type="submit" class="btn btn-success">确定</button>
+					  </div>
+				</form>
+            </div>
 		</div>
-		<#-- 页脚
-		<@_footer.footer 0/>
-		-->
-		<script src="${cdn}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
+		</div>
+		<@_quoteAmazeUi.quoteAmazeUi 1/>
+		
 		<script>
 			$(function(){
 				var load;
