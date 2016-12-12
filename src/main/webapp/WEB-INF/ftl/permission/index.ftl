@@ -91,7 +91,7 @@
 				         	<a class="btn btn-primary" title="查询" type="submit"  onclick="$('#formId').submit();">
 			                <i class="fa fa-search"></i></a>
 				         	<@shiro.hasPermission name="/permission/addPermission.shtml">
-				         		<a class="btn btn-success" title="增加权限" onclick="$('#addPermission').modal();">
+				         		<a class="btn btn-success" title="增加权限"   data-toggle='modal' data-target='#addPermission'>
 			                    <i class="fa fa-plus-square"></i></a>
 				         	</@shiro.hasPermission>
 				         	<@shiro.hasPermission name="/permission/deletePermissionById.shtml">

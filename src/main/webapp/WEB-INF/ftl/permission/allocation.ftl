@@ -73,6 +73,7 @@
 				var load = layer.load();
 				$.post("${basePath}/permission/selectPermissionById.shtml",{id:id},function(result){
 					layer.close(load);
+					$('#selectRoleId').val(id);
 					if(result && result.length){
 						var html =[];
 						html.push('<div class="checkbox"><label><input type="checkbox"  selectAllBox="">全选</label></div>');
@@ -92,8 +93,7 @@
 						});
 						//初始化全选。
 						return so.id('boxRoleForm').html(html.join('')),
-						so.checkBoxInit('[selectAllBox]','[selectBox]'),
-						$('#selectPermission').modal(),$('#selectRoleId').val(id),!1;
+						so.checkBoxInit('[selectAllBox]','[selectBox]'),$('#selectRoleId').val(id),!1;
 					}else{
 						return layer.msg('没有获取到权限数据，请先添加权限数据。',so.default);
 					}
@@ -148,7 +148,9 @@
 									<td permissionIds="${it.permissionIds?default('')}">${it.permissionNames?default('-')}</td>
 									<td>
 										<@shiro.hasPermission name="/permission/addPermission2Role.shtml">
-											<a class="btn btn-success" title="选择权限"  href="javascript:selectPermissionById(${it.id});">
+											<a class="btn btn-success" title="选择权限" 
+											  data-toggle='modal' data-target='#selectPermission'
+											 onclick="selectPermissionById(${it.id});">
 			                    			<i class="fa fa-mail-forward"></i></a>
 										</@shiro.hasPermission>
 									</td>

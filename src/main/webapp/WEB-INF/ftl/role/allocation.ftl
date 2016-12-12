@@ -89,7 +89,7 @@
 							html.push(this.name);
 							html.push('</label></div>');
 						});
-						return so.id('boxRoleForm').html(html.join('')) & $('#selectRole').modal(),$('#selectUserId').val(id),!1;
+						return so.id('boxRoleForm').html(html.join('')) & $('#selectUserId').val(id),!1;
 					}else{
 						return layer.msg('没有获取到用户数据，请先注册数据。',so.default);
 					}
@@ -148,7 +148,8 @@
 									<td roleIds="${it.roleIds?default('')}">${it.roleNames?default('-')}</td>
 									<td>
 										<@shiro.hasPermission name="/role/addRole2User.shtml">
-											<a class="btn btn-success" title="选择角色"  href="javascript:selectRoleById(${it.id});">
+											<a class="btn btn-success" title="选择角色"   data-toggle='modal' data-target='#selectRole'
+											 onclick="selectRoleById(${it.id});">
 			                    			<i class="fa fa-mail-forward"></i></a>
 										</@shiro.hasPermission>
 									</td>

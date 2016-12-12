@@ -92,7 +92,7 @@
 			         	<a class="btn btn-primary" title="查询" type="submit"  onclick="$('#formId').submit();">
 		                <i class="fa fa-search"></i></a>
 			         	<@shiro.hasPermission name="/role/addRole.shtml">
-			         		<a class="btn btn-success" title="增加角色" onclick="$('#addrole').modal();">
+			         		<a class="btn btn-success" title="增加角色"  data-toggle='modal' data-target='#addrole'>
 		                    <i class="fa fa-plus-square"></i></a>
 			         	</@shiro.hasPermission>
 			         	<@shiro.hasPermission name="/role/deleteRoleById.shtml">
@@ -159,7 +159,7 @@
 				          </div>
 				          <div class="form-group">
 				            <label for="recipient-name" class="control-label">角色类型:</label>
-				            <input type="text" class="form-control" id="type" name="type"  placeholder="请输入角色类型  [字母 + 数字] 6位">
+				            <input type="text" class="form-control" id="type" name="type"  placeholder="请输入角色类型  [字母 + 数字] 6位"/>
 				          </div>
 				        </form>
 				      </div>
