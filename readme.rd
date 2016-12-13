@@ -11,4 +11,4 @@ shiro-redis-springmvc-spring-mybatis本项目来源 https://github.com/baichengz
 
 4.分支branch-master（在baichengzhou项目基础上修改1.2.3）、branch-amazeUi（采用amazeUi样式，效果图如下）
 
-![image](https://github.com/luomouren/shiro-redis-ssm/blob/amazeUi/screenshot/amazeUi-%E6%95%88%E6%9E%9C%E5%9B%BE.png)
+![image](https://raw.githubusercontent.com/luomouren/shiro-redis-ssm/amazeUi/screenshot/amazeUi-%E6%95%88%E6%9E%9C%E5%9B%BE.png)
